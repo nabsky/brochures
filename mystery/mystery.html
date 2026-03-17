@@ -615,6 +615,426 @@
             color:var(--muted);
             line-height:1.35;
         }
+        .page-kicker{
+            display:inline-block;
+            margin-bottom:10px;
+            font-size:11px;
+            font-weight:700;
+            letter-spacing:0.12em;
+            text-transform:uppercase;
+            color:var(--accent);
+        }
+
+        .problem-box,
+        .solution-box{
+            padding:18px 20px;
+            border:1px solid var(--line);
+            border-radius:12px;
+            background:var(--soft);
+        }
+
+        .problem-box h3,
+        .solution-box h3{
+            margin-bottom:10px;
+            font-size:20px;
+            line-height:1.2;
+        }
+
+        .check-list{
+            margin-top:12px;
+            padding-left:0;
+            list-style:none;
+        }
+
+        .check-list li{
+            position:relative;
+            padding-left:22px;
+            margin-bottom:10px;
+            font-size:14px;
+            line-height:1.4;
+        }
+
+        .check-list.positive li::before{
+            content:"•";
+            position:absolute;
+            left:0;
+            top:0;
+            color:var(--accent);
+            font-weight:700;
+            font-size:18px;
+            line-height:1;
+        }
+
+        .check-list.negative li::before{
+            content:"–";
+            position:absolute;
+            left:0;
+            top:0;
+            color:#777;
+            font-weight:700;
+            font-size:18px;
+            line-height:1;
+        }
+
+        .value-strip{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:12px;
+            margin-top:18px;
+        }
+
+        .value-card{
+            border:1px solid var(--line);
+            border-radius:10px;
+            padding:14px 12px;
+            background:#fff;
+        }
+
+        .value-card strong{
+            display:block;
+            font-family:Poppins,sans-serif;
+            font-size:14px;
+            margin-bottom:4px;
+            color:var(--text);
+        }
+
+        .value-card span{
+            display:block;
+            font-size:12px;
+            color:var(--muted);
+            line-height:1.35;
+        }
+
+        .comparison-panel{
+            margin-top:18px;
+            padding:18px 20px;
+            border:1px solid var(--line);
+            border-radius:12px;
+            background:#fff;
+        }
+
+        .comparison-panel h3{
+            margin-bottom:12px;
+        }
+
+        .comparison-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            border:1px solid var(--line);
+            border-radius:10px;
+            overflow:hidden;
+        }
+
+        .comparison-head{
+            padding:12px 14px;
+            background:#111;
+            color:#fff;
+            font-family:Poppins,sans-serif;
+            font-size:13px;
+            font-weight:600;
+        }
+
+        .comparison-cell{
+            padding:11px 14px;
+            font-size:13px;
+            border-top:1px solid var(--line);
+        }
+
+        .muted-bg{
+            background:#fafafa;
+            color:#444;
+        }
+
+        .accent-bg{
+            background:#fff7f8;
+            color:#111;
+        }
+
+        .benefit-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:16px;
+            margin-top:8px;
+        }
+
+        .benefit-card{
+            position:relative;
+            border:1px solid var(--line);
+            border-radius:12px;
+            padding:18px 18px 16px;
+            background:var(--soft);
+        }
+
+        .benefit-number{
+            font-family:Poppins,sans-serif;
+            font-size:12px;
+            font-weight:700;
+            color:var(--accent);
+            margin-bottom:8px;
+            letter-spacing:0.08em;
+        }
+
+        .benefit-card h3{
+            font-size:18px;
+            margin-bottom:8px;
+        }
+
+        .benefit-card p{
+            font-size:13px;
+            color:var(--muted);
+            margin:0;
+        }
+
+        .operator-box{
+            margin-top:18px;
+            display:grid;
+            grid-template-columns:1.25fr 0.9fr;
+            gap:18px;
+            align-items:stretch;
+        }
+
+        .operator-box > div{
+            border:1px solid var(--line);
+            border-radius:12px;
+            padding:18px 20px;
+            background:#fff;
+        }
+
+        .operator-highlight{
+            background:var(--soft) !important;
+        }
+
+        .operator-highlight h3{
+            margin-bottom:8px;
+            font-size:18px;
+        }
+
+        .lead-text{
+            max-width: 760px;
+            margin-bottom: 18px;
+            font-size: 16px;
+            line-height: 1.5;
+            color: var(--muted);
+        }
+
+        .metric-strip{
+            display:grid;
+            gap:12px;
+            margin:18px 0 20px;
+        }
+
+        .metric-strip.four{
+            grid-template-columns:repeat(4,1fr);
+        }
+
+        .metric-card{
+            padding:14px 12px;
+            border:1px solid var(--line);
+            border-radius:12px;
+            background:#fff;
+        }
+
+        .metric-card strong{
+            display:block;
+            font-family:Poppins,sans-serif;
+            font-size:30px;
+            line-height:1;
+            color:var(--accent);
+            margin-bottom:8px;
+        }
+
+        .metric-card span{
+            display:block;
+            font-size:12px;
+            line-height:1.35;
+            color:var(--text);
+        }
+
+        .full-image{
+            width:100%;
+            height:380px;
+            object-fit:cover;
+            border-radius:16px;
+            display:block;
+            margin-top:4px;
+        }
+
+        .caption-row{
+            margin-top:10px;
+            font-size:12px;
+            line-height:1.4;
+            color:var(--muted);
+        }
+
+        .soft-panel{
+            padding:18px 20px;
+            border:1px solid var(--line);
+            border-radius:12px;
+            background:var(--soft);
+        }
+
+        .stats-list{
+            margin-top:14px;
+            display:grid;
+            gap:10px;
+        }
+
+        .stats-list div{
+            display:flex;
+            justify-content:space-between;
+            gap:16px;
+            padding-bottom:8px;
+            border-bottom:1px solid var(--line);
+            font-size:14px;
+        }
+
+        .stats-list div strong{
+            font-weight:600;
+            color:var(--text);
+        }
+
+        .stats-list div span{
+            color:var(--accent);
+            font-weight:600;
+        }
+
+        .proof-strip{
+            margin: 0 0 18px;
+            padding: 12px 14px;
+            border-left: 4px solid var(--accent);
+            background: #fff7f8;
+            color: var(--text);
+            font-size: 13px;
+            line-height: 1.45;
+            border-radius: 8px;
+        }
+
+        .ownership-panel{
+            margin-top:18px;
+            padding:18px 20px;
+            border:1px solid var(--line);
+            border-radius:12px;
+            background:#fff7f8;
+            display:grid;
+            grid-template-columns:1.35fr 0.9fr;
+            gap:18px;
+            align-items:center;
+        }
+
+        .ownership-copy h3{
+            margin-bottom:8px;
+            font-size:22px;
+            line-height:1.2;
+        }
+
+        .ownership-copy p{
+            margin:0;
+            font-size:14px;
+            line-height:1.5;
+            color:var(--muted);
+        }
+
+        .ownership-metrics{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:10px;
+        }
+
+        .ownership-metric{
+            border:1px solid rgba(0,0,0,0.08);
+            border-radius:12px;
+            background:#fff;
+            padding:14px 10px;
+            text-align:center;
+        }
+
+        .ownership-metric strong{
+            display:block;
+            font-family:Poppins,sans-serif;
+            font-size:28px;
+            line-height:1;
+            color:var(--accent);
+            margin-bottom:6px;
+        }
+
+        .ownership-metric span{
+            display:block;
+            font-size:12px;
+            line-height:1.3;
+            color:var(--text);
+        }
+
+        .ownership-panel.compact{
+            margin-top:16px;
+            padding:16px 18px;
+        }
+
+        .comparison-panel.compact{
+            margin-top:16px;
+            padding:16px 18px;
+        }
+
+        .comparison-grid.compact-grid .comparison-head{
+            padding:10px 12px;
+            font-size:12px;
+        }
+
+        .comparison-grid.compact-grid .comparison-cell{
+            padding:9px 12px;
+            font-size:12px;
+            line-height:1.35;
+        }
+
+        .soft-panel p{
+            font-size:13px;
+            line-height:1.45;
+        }
+
+        .soft-panel h3{
+            font-size:20px;
+            line-height:1.2;
+        }
+
+        .equal-panels{
+            align-items:stretch;
+        }
+
+        .equal-panels > .soft-panel{
+            height:100%;
+            display:flex;
+            flex-direction:column;
+        }
+
+        .equal-panels > .soft-panel p{
+            margin-bottom:12px;
+        }
+
+        .compact-list li{
+            margin-bottom:8px;
+        }
+
+        .practical-line{
+            margin: 0 0 18px;
+            padding: 10px 14px;
+            border-left: 4px solid var(--accent);
+            background: #fff7f8;
+            color: var(--text);
+            font-size: 13px;
+            line-height: 1.45;
+            border-radius: 8px;
+        }
+
+        .hero-ui-image{
+            width:100%;
+            object-fit:cover;
+            border-radius:16px;
+            display:block;
+            margin-bottom:18px;
+        }
+
+        .top-gap{
+            margin-top:4px;
+        }
     </style>
 </head>
 <body>
@@ -639,102 +1059,119 @@
 
 <!-- PAGE 2 -->
 <section class="page">
-    <h2 class="section-title">Customer-Driven Design</h2>
+    <h2 class="section-title">Progressive Jackpot Without Expensive Table Hardware</h2>
 
-    <div class="two-col">
-        <div>
-            <p>
-                Mystery Jackpot was originally developed in partnership with a major casino operator managing multiple properties in Africa.
-            </p>
-            <p>
-                The original goal was clear: create a practical progressive jackpot system for a small gaming floor with limited installation space and a restricted hardware budget.
-            </p>
-            <p>
-                Instead of placing a dedicated display on every table, the solution was built around a single central jackpot screen visible from across the casino floor.
-            </p>
+    <p class="lead-text">
+        Built for operators who want jackpot visibility, player excitement and bonus bet revenue
+        without expensive sensor networks, heavy table modifications or complex floor installation.
+    </p>
+
+    <div class="metric-strip four">
+        <div class="metric-card">
+            <strong>1</strong>
+            <span>central display for multiple tables</span>
         </div>
-
-        <div>
-            <p>
-                This design made it possible to keep table hardware simple, using only a compact Android-based controller and a wireless keypad at each active table.
-            </p>
-            <p>
-                The result is a flexible, budget-friendly and highly configurable progressive jackpot platform designed for real-world casino operations.
-            </p>
-            <div class="highlight-box">
-                <h3>Why it matters</h3>
-                <p>
-                    Mystery Jackpot was not designed as a concept product. It was built to meet real operator requirements around cost, space, visibility and usability.
-                </p>
-            </div>
+        <div class="metric-card">
+            <strong>0</strong>
+            <span>expensive sensor network required</span>
+        </div>
+        <div class="metric-card">
+            <strong>3</strong>
+            <span>jackpot levels from a single bonus bet</span>
+        </div>
+        <div class="metric-card">
+            <strong>1</strong>
+            <span>wireless keypad workflow per active table</span>
         </div>
     </div>
 
-    <div class="system-band">
-        <img
-                src="casino_hall.png"
-                alt="System overview showing central jackpot display, table devices and dealer keypads"
-        >
-        <div class="system-caption">
-            Centralized jackpot presentation with configurable table units, mirrored displays and wireless dealer input.
-        </div>
+    <div class="proof-strip">
+        Originally developed in collaboration with a major multi-property casino operator in Africa
+        to solve real-world constraints around cost, space, visibility and usability.
+    </div>
+
+    <img src="casino_hall.png" alt="Central jackpot display visible across a live casino floor" class="full-image"/>
+
+    <div class="caption-row">
+        A single central jackpot display creates strong floor visibility without requiring expensive
+        hardware at every table.
     </div>
 </section>
 
 <!-- PAGE 3 -->
 <section class="page">
-    <h2 class="section-title">Key Advantages</h2>
+    <h2 class="section-title">Built for Real Casino Economics</h2>
 
-    <p class="muted">
-        Mystery Jackpot was designed specifically for live casino environments where practicality, visibility, operator control and player excitement are all essential.
+    <p class="lead-text">
+        Mystery Jackpot combines a practical floor model with a straightforward commercial model:
+        less hardware, simpler installation and full operator ownership without recurring platform fees.
     </p>
 
-    <div class="features">
-        <div class="feature">
-            <img class="feature-icon" src="https://placehold.co/72x72?text=1" alt="Central display icon">
-            <div class="feature-text">
-                <h3>Centralized Jackpot Display</h3>
-                <p>A single large screen can present jackpot values and participation status for multiple tables.</p>
-            </div>
+    <div class="practical-line">
+        Designed for practical deployment on real casino floors.
+    </div>
+
+    <div class="two-col equal-panels">
+
+        <div class="soft-panel">
+            <div class="page-kicker">Configurable Jackpot Logic</div>
+            <h3>Fully configurable jackpot math with automatic RTP calculation</h3>
+
+            <p>
+                Bonus bet amount, jackpot contributions, starting values and hit frequencies can all
+                be configured by the operator. As values are adjusted, the system automatically
+                recalculates and displays the resulting RTP in the control interface.
+            </p>
+
+            <ul class="check-list positive compact-list">
+                <li>Configurable bonus bet amount</li>
+                <li>Adjustable contributions, start values and hit frequencies</li>
+                <li>Automatic RTP calculation in the control panel</li>
+                <li>Flexible for different table economics and currencies</li>
+            </ul>
         </div>
 
-        <div class="feature">
-            <img class="feature-icon" src="https://placehold.co/72x72?text=2" alt="Participation icon">
-            <div class="feature-text">
-                <h3>Live Participation Visibility</h3>
-                <p>Players and staff can immediately see which tables and boxes are participating in the current round.</p>
-            </div>
+        <div class="soft-panel">
+            <div class="page-kicker">Operational Advantages</div>
+            <h3>A simpler jackpot model for live tables</h3>
+
+            <ul class="check-list positive compact-list">
+                <li>No expensive per-position sensor hardware</li>
+                <li>Reduced installation footprint with minimal table wiring</li>
+                <li>Compact, silent hardware with fast startup</li>
+                <li>Easy maintenance and device replacement</li>
+                <li>Works with existing casino tables</li>
+            </ul>
         </div>
 
-        <div class="feature">
-            <img class="feature-icon" src="https://placehold.co/72x72?text=3" alt="Dealer input icon">
-            <div class="feature-text">
-                <h3>Simple Dealer Workflow</h3>
-                <p>Bonus bets are entered quickly through a wireless keypad without requiring expensive table sensors.</p>
-            </div>
+    </div>
+
+    <div class="ownership-panel compact">
+        <div class="ownership-copy">
+            <div class="page-kicker">Commercial Model</div>
+            <h3>One-time purchase. No revenue share. No recurring platform fees.</h3>
+
+            <p>
+                Mystery Jackpot is sold as an operator-owned platform. Once installed,
+                the system operates entirely under the operator’s control without lease
+                payments, bonus bet revenue share or ongoing platform fees.
+            </p>
         </div>
 
-        <div class="feature">
-            <img class="feature-icon" src="https://placehold.co/72x72?text=4" alt="Configurable jackpot icon">
-            <div class="feature-text">
-                <h3>Configurable Jackpot Economy</h3>
-                <p>Bonus bet amount, contributions, probabilities and starting values can all be adjusted by the operator.</p>
+        <div class="ownership-metrics">
+            <div class="ownership-metric">
+                <strong>1x</strong>
+                <span>system purchase</span>
             </div>
-        </div>
 
-        <div class="feature">
-            <img class="feature-icon" src="https://placehold.co/72x72?text=5" alt="Any game icon">
-            <div class="feature-text">
-                <h3>Works with Any Game</h3>
-                <p>The platform is not limited to a single table game and can be adapted to many gaming environments.</p>
+            <div class="ownership-metric">
+                <strong>0%</strong>
+                <span>revenue share</span>
             </div>
-        </div>
 
-        <div class="feature">
-            <img class="feature-icon" src="https://placehold.co/72x72?text=6" alt="Customization icon">
-            <div class="feature-text">
-                <h3>Operator-Friendly Customization</h3>
-                <p>Jackpot behavior, graphics, contribution logic and payout flow can be tailored to operator requirements.</p>
+            <div class="ownership-metric">
+                <strong>0</strong>
+                <span>monthly platform fees</span>
             </div>
         </div>
     </div>
@@ -742,52 +1179,59 @@
 
 <!-- PAGE 4 -->
 <section class="page">
-    <h2 class="section-title">Central Jackpot Display</h2>
+    <h2 class="section-title">Player Engagement Across the Floor</h2>
 
-    <img
-            class="hero-image"
-            src="main_screen.png"
-            alt="Main Mystery Jackpot display showing Ruby, Gold and Jade jackpot values and active table positions"
-    >
+    <img src="main_screen.png" alt="Mystery Jackpot central display with live participation and jackpot values" class="hero-ui-image"/>
 
-    <div class="two-col">
+    <div class="two-col top-gap">
         <div>
-            <h3>Visible from Across the Floor</h3>
+            <h3>Visible excitement for players and staff</h3>
             <p>
-                The central display presents all jackpot levels together with live participation status in a format visible from multiple tables.
+                The central display turns the jackpot into a live part of the floor atmosphere.
+                Players can see current jackpot values, active participation and round activity
+                from across multiple tables.
             </p>
+
             <p>
-                This makes the jackpot itself part of the floor atmosphere without requiring a dedicated monitor at every table.
+                This shared visibility helps the jackpot feel immediate, public and connected to
+                the live table environment rather than hidden at a single table.
             </p>
         </div>
 
         <div>
-            <h3>Live System State</h3>
+            <h3>Clear live participation</h3>
             <p>
-                Beyond jackpot values, the display also shows which tables are active, which boxes have entered the current round and which positions recently participated in the draw.
+                The display shows which tables are active and which boxes have entered the current
+                round, helping players understand when participation is live and where the action
+                is building.
             </p>
+
             <p>
-                This gives players and staff a transparent view of the current jackpot activity.
+                This creates anticipation, strengthens attention around the draw and makes each
+                jackpot event more visible to the wider floor.
             </p>
         </div>
     </div>
 
-    <div class="kpi-band">
-        <div class="kpi">
+    <div class="value-strip">
+        <div class="value-card">
             <strong>3 Jackpot Levels</strong>
-            <span>Ruby, Gold and Jade</span>
+            <span>Ruby, Gold and Jade shown together on one live display</span>
         </div>
-        <div class="kpi">
-            <strong>Central Visibility</strong>
-            <span>Designed for multi-table floors</span>
-        </div>
-        <div class="kpi">
+
+        <div class="value-card">
             <strong>Live Participation</strong>
-            <span>Active boxes shown on screen</span>
+            <span>Active tables and boxes are visible during the round</span>
         </div>
-        <div class="kpi">
-            <strong>Practical Deployment</strong>
-            <span>One main display for multiple tables</span>
+
+        <div class="value-card">
+            <strong>Shared Visibility</strong>
+            <span>The jackpot becomes part of the wider casino atmosphere</span>
+        </div>
+
+        <div class="value-card">
+            <strong>Floor Presence</strong>
+            <span>One display can create attention across multiple tables</span>
         </div>
     </div>
 </section>

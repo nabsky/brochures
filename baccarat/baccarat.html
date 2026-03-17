@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baccarat Display – Product Update</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @page {
+            size: A4;
+            margin: 18mm;
+        }
+
+        :root{
+            --text:#171717;
+            --muted:#5f5f5f;
+            --line:#e9e9e9;
+            --soft:#f7f7f7;
+            --accent:#c9a44c;
+        }
+
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+            margin:0;
+            font-family:Montserrat, sans-serif;
+            color:var(--text);
+            line-height:1.45;
+            background:#fff;
+        }
+
+        .page{
+            page-break-after:always;
+            min-height:calc(297mm - 36mm);
+            position:relative;
+        }
+
+        .page:last-child{
+            page-break-after:auto;
+        }
+
+        h1,h2,h3{
+            font-family:Poppins, sans-serif;
+            margin:0;
+            color:#111;
+        }
+
+        h1{
+            font-size:42px;
+            line-height:1.05;
+            letter-spacing:-0.02em;
+        }
+
+        h2{
+            font-size:26px;
+            line-height:1.15;
+            padding-bottom:8px;
+            margin-bottom:18px;
+            border-bottom:2px solid var(--line);
+        }
+
+        h3{
+            font-size:18px;
+            line-height:1.2;
+            margin-bottom:8px;
+        }
+
+        p{
+            font-size:14px;
+            margin:0 0 12px 0;
+        }
+
+        .lead{
+            font-size:15px;
+            color:#f4f4f4;
+            max-width:430px;
+            margin:0;
+        }
+
+        .muted{
+            color:var(--muted);
+        }
+
+        ul{
+            margin:0;
+            padding-left:18px;
+            font-size:14px;
+        }
+
+        li{
+            margin-bottom:8px;
+        }
+
+        img{
+            display:block;
+            max-width:100%;
+            height:auto;
+            border-radius:8px;
+        }
+
+        .cover-hero{
+            position:relative;
+            height:255mm;
+            overflow:hidden;
+            border-radius:10px;
+            background:#111;
+        }
+
+        .cover-hero img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            border-radius:10px;
+            /*filter: brightness(0.65) contrast(1.05);*/
+        }
+
+        .cover-text{
+            position:absolute;
+            left:34px;
+            bottom:34px;
+            color:#fff;
+            max-width:470px;
+        }
+
+        .cover-text h1{
+            color:#fff;
+            margin-bottom:10px;
+        }
+
+        .cover-kicker{
+            display:inline-block;
+            font-size:12px;
+            font-weight:600;
+            letter-spacing:0.12em;
+            text-transform:uppercase;
+            color:#f0f0f0;
+            margin-bottom:12px;
+            padding:6px 10px;
+            border:1px solid rgba(255,255,255,0.25);
+            border-radius:999px;
+        }
+
+        .cover-subtitle{
+            font-family:Poppins, sans-serif;
+            font-size:20px;
+            font-weight:500;
+            margin-bottom:12px;
+            color:#fff;
+        }
+
+        .two-col{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:28px;
+            align-items:start;
+        }
+
+        .features{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:22px 30px;
+            margin-top:8px;
+        }
+
+        .feature{
+            display:flex;
+            gap:14px;
+            align-items:flex-start;
+            padding:14px 0;
+        }
+
+        .feature-icon{
+            width:36px;
+            height:36px;
+            flex-shrink:0;
+            margin-top:1px;
+        }
+
+        .feature-text h3{
+            font-size:16px;
+            margin-bottom:6px;
+        }
+
+        .feature-text p{
+            font-size:13px;
+            color:var(--muted);
+            margin:0;
+        }
+
+        .hero-image{
+            margin:14px 0 18px;
+        }
+
+        .stack{
+            display:flex;
+            flex-direction:column;
+            gap:22px;
+        }
+
+        .card{
+            border:1px solid var(--line);
+            background:#fff;
+            border-radius:10px;
+            padding:16px;
+        }
+
+        .card img{
+            width:100%;
+            margin:10px 0 12px;
+            border-radius:8px;
+        }
+
+        .caption{
+            font-size:13px;
+            color:var(--muted);
+            margin:0;
+        }
+
+        .small-note{
+            font-size:13px;
+            color:var(--muted);
+        }
+
+        .kpi-band{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:12px;
+            margin-top:16px;
+        }
+
+        .kpi{
+            border:1px solid var(--line);
+            border-radius:10px;
+            padding:12px;
+            background:var(--soft);
+        }
+
+        .kpi strong{
+            display:block;
+            font-family:Poppins,sans-serif;
+            font-size:14px;
+            margin-bottom:4px;
+        }
+
+        .kpi span{
+            font-size:12px;
+            color:var(--muted);
+        }
+
+        .footer{
+            margin-top:28px;
+            padding-top:14px;
+            border-top:1px solid var(--line);
+            font-size:12px;
+            color:var(--muted);
+        }
+
+        .contact-page{
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            min-height:calc(297mm - 36mm);
+        }
+
+        .contact-box{
+            border:1px solid var(--line);
+            border-radius:12px;
+            padding:28px;
+            background:linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+        }
+
+        .contact-box h2{
+            border-bottom:none;
+            padding-bottom:0;
+            margin-bottom:14px;
+        }
+
+        .contact-line{
+            font-size:15px;
+            margin-bottom:8px;
+        }
+
+        .spacer-4{ height:4px; }
+        .spacer-8{ height:8px; }
+        .spacer-12{ height:12px; }
+
+        .placeholder-note{
+            margin-top:10px;
+            font-size:12px;
+            color:var(--muted);
+        }
+
+        .cards-2{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+            align-items:start;
+        }
+
+        .cards-3{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+            gap:16px;
+            align-items:start;
+        }
+
+        .card.compact{
+            padding:14px;
+        }
+
+        .card.compact h3{
+            margin-bottom:6px;
+        }
+
+        .card.compact img{
+            margin:8px 0 10px;
+            border-radius:6px;
+        }
+
+        .layout-intro{
+            margin-top:14px;
+            padding:16px 18px;
+            border:1px solid var(--line);
+            border-radius:10px;
+            background:var(--soft);
+        }
+
+        .layout-intro p:last-child{
+            margin-bottom:0;
+        }
+
+        .contact-mini{
+            margin-top:20px;
+            padding-top:14px;
+            border-top:1px solid var(--line);
+            display:grid;
+            grid-template-columns:1.2fr 1fr 1fr;
+            gap:18px;
+            align-items:start;
+        }
+
+        .contact-mini-title{
+            font-family:Poppins,sans-serif;
+            font-size:18px;
+            margin:0 0 6px 0;
+        }
+
+        .contact-mini p{
+            margin:0 0 6px 0;
+            font-size:12px;
+            color:var(--muted);
+        }
+
+        .contact-mini strong{
+            color:var(--text);
+        }
+
+        .tight p{
+            margin-bottom:10px;
+        }
+
+        .tight ul li{
+            margin-bottom:6px;
+        }
+
+        .system-band{
+            margin-top:28px;
+            padding-top:18px;
+            border-top:1px solid var(--line);
+        }
+
+        .system-band img{
+            width:100%;
+            max-width:640px;
+            margin:auto;
+            border-radius:6px;
+        }
+
+        .system-caption{
+            text-align:center;
+            font-size:12px;
+            color:var(--muted);
+            margin-top:8px;
+        }
+
+        .feature{
+            display:flex;
+            gap:14px;
+            align-items:flex-start;
+            padding:14px;
+            border:1px solid var(--line);
+            border-radius:8px;
+            background:#fafafa;
+        }
+        .layout-full{
+            grid-column:1 / -1;
+        }
+        .theme-card{
+            border:none;
+            background:transparent;
+            padding:0;
+        }
+
+        .theme-card img{
+            border-radius:8px;
+            box-shadow:0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        .section-title{
+            position:relative;
+            padding-left:16px;
+        }
+
+        .section-title::before{
+            content:"";
+            position:absolute;
+            left:0;
+            top:4px;
+            width:4px;
+            height:20px;
+            background:#c81e2b;
+            border-radius:2px;
+        }
+
+        .theme-card h3{
+            font-weight:600;
+            margin-bottom:6px;
+        }
+
+        .card-highlight{
+            background:#f7f7f7;
+            border-radius:10px;
+            padding:20px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page">
+    <div class="cover-hero">
+        <img
+                src="cover.png"
+                alt="Header visual showing Zorin Displays Baccarat Display system"
+        >
+        <div class="cover-text">
+            <div class="cover-kicker">Product Update</div>
+            <h1>Baccarat Display</h1>
+            <div class="cover-subtitle">Professional Baccarat Scoreboard System</div>
+            <p class="lead">
+                Designed for maximum readability, flexible layouts and the demands of modern casino environments.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+    <h2 class="section-title">Key Advantages</h2>
+    <p class="muted">
+        The Zorin Baccarat Display was designed specifically for live casino environments where readability, reliability and operational flexibility are critical.
+    </p>
+
+    <div class="features">
+        <div class="feature">
+            <img class="feature-icon" src="read.svg">
+            <div class="feature-text">
+                <h3>Exceptional Road Readability</h3>
+                <p>Large, carefully balanced roads ensure that patterns remain clearly visible from across the table.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="clear.svg">
+            <div class="feature-text">
+                <h3>Clear Game Result Display</h3>
+                <p>The winning result appears prominently in the center before animating into the Bead Road.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="flex.svg">
+            <div class="feature-text">
+                <h3>Multiple Layout Options</h3>
+                <p>Modern, Classic and Traditional layouts allow casinos to match player expectations and local habits.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="themes.svg">
+            <div class="feature-text">
+                <h3>Professional Color Themes</h3>
+                <p>Ten carefully designed themes optimized for readability in different casino interiors and lighting conditions.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="integration.svg">
+            <div class="feature-text">
+                <h3>Seamless System Integration</h3>
+                <p>Manual input, smart shoes, video recognition systems and open API support enable seamless casino integration.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="custom.svg">
+            <div class="feature-text">
+                <h3>Custom Feature Support</h3>
+                <p>
+                    Custom features such as side bets, progressive jackpots and casino-specific display elements
+                    can be added to meet operator requirements.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="system-band">
+        <img
+                src="input.png"
+                alt="Baccarat display system with wireless keypad input and iShoe integration">
+    </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+    <h2 class="section-title">Modern Layout Optimized for Baccarat</h2>
+
+    <img
+            class="hero-image"
+            src="modern_layout.png"
+            alt="Modern layout of baccarat display with large Big Road, Bead Road, Derived Roads and central Prediction Board"
+    >
+
+    <div class="two-col">
+        <div>
+            <h3>Layout Structure</h3>
+            <ul>
+                <li>Large Big Road positioned at the top</li>
+                <li>Bead Road placed in the lower left area</li>
+                <li>Derived Roads grouped on the lower right</li>
+                <li>Prediction Board prominently placed in the center</li>
+                <li>Game result displayed prominently above all elements</li>
+            </ul>
+        </div>
+
+        <div>
+            <h3>Player Readability</h3>
+            <p>
+                The Modern Layout was designed specifically for baccarat players who rely on instant recognition of roads, trends and outcomes.
+            </p>
+            <p>
+                It prioritizes the most important information while preserving a clean visual hierarchy and strong readability on large displays.
+            </p>
+        </div>
+    </div>
+
+    <div class="kpi-band">
+        <div class="kpi">
+            <strong>Big Road First</strong>
+            <span>Top priority visual placement</span>
+        </div>
+        <div class="kpi">
+            <strong>Central Prediction</strong>
+            <span>More visible than typical displays</span>
+        </div>
+        <div class="kpi">
+            <strong>Distance Readability</strong>
+            <span>Clear from across the table</span>
+        </div>
+        <div class="kpi">
+            <strong>Pixel Perfect</strong>
+            <span>Consistent spacing and rendering</span>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page">
+    <h2 class="section-title">Pixel-Perfect Road Rendering</h2>
+
+    <img
+            class="hero-image"
+            src="pixel_perfect.png"
+            alt="Detailed baccarat display view showing Big Road, ties, dragon behavior and prediction board"
+    >
+
+    <div class="two-col">
+        <div>
+            <h3>Big Road</h3>
+            <ul>
+                <li>Correct dragon drop behavior</li>
+                <li>Clean and readable tie indicators</li>
+                <li>Multiple ties grouped automatically</li>
+                <li>No visual overlap between elements</li>
+            </ul>
+
+            <div class="spacer-12"></div>
+
+            <h3>Bead Road</h3>
+            <p>
+                Each bead is rendered as a reduced but consistent visual representation of the actual game result.
+            </p>
+        </div>
+
+        <div>
+            <h3>Derived Roads</h3>
+            <p>
+                Big Eye Road, Small Road and Cockroach Road remain fully readable while using minimal screen space.
+            </p>
+
+            <div class="spacer-12"></div>
+
+            <h3>Prediction Board</h3>
+            <p>
+                Unlike many displays where prediction indicators are difficult to read, the board is centrally positioned and clearly visible.
+            </p>
+
+            <div class="spacer-12"></div>
+
+            <h3>Large Animated Result</h3>
+            <p>
+                The winning result appears prominently in the center of the screen and then animates into the Bead Road for immediate recognition.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page">
+    <h2 class="section-title">Flexible Layout Options</h2>
+
+    <p class="muted">
+        The system offers multiple layout styles to match player expectations, casino preferences and regional habits.
+    </p>
+
+    <div class="card">
+        <h3>Modern</h3>
+        <img
+                src="layout_modern.png"
+                alt="Modern baccarat display layout"
+        >
+        <p class="caption">
+            Optimized layout developed specifically for clarity and readability.
+        </p>
+    </div>
+
+    <div class="layout-intro">
+        <h3>Our Signature Layout</h3>
+        <p>
+            Modern is the signature Zorin Displays layout and the primary visual format of the system.
+            It was developed with direct attention to the preferences of experienced baccarat players,
+            with a strong focus on hierarchy, balance and immediate road recognition.
+        </p>
+        <p>
+            Special attention was given to the central Prediction Board. While many displays treat this
+            element as secondary, our layout places it at the center and gives it clear visual emphasis,
+            making it easier to read and more valuable for active players.
+        </p>
+        <p>
+            At the same time, we understand that some casinos prefer more familiar arrangements,
+            which is why additional layout options are also available.
+        </p>
+    </div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page">
+    <h2 class="section-title">Additional Layout Options</h2>
+
+    <div class="cards-2">
+
+        <div class="card layout-full">
+            <h3>Classic</h3>
+            <img src="layout_classic.png">
+            <p class="caption">
+                Classic layout similar to many existing baccarat displays.
+            </p>
+        </div>
+
+        <div class="card layout-full">
+            <h3>Traditional</h3>
+            <img src="layout_traditional.png">
+            <p class="caption">
+                Inspired by traditional scoreboards using paper sheets.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page">
+    <h2 class="section-title">Color Themes</h2>
+
+    <p class="muted">
+        The display includes ten professionally designed themes inspired by casino interiors and regional preferences.
+        All examples below use the same Modern Layout for direct visual comparison.
+    </p>
+    <p class="muted">
+        Each theme preserves the same layout while adapting the visual style to different casino interiors and lighting conditions.
+    </p>
+
+    <div class="cards-3">
+        <div class="card theme-card">
+            <h3>Beech Theme</h3>
+            <img
+                    src="theme_beech.png"
+                    alt="Beech baccarat display theme shown in Modern Layout"
+            >
+            <p class="caption">
+                Warm neutral tones inspired by traditional baccarat scoreboards.
+                Ideal for casinos that prefer a classic table atmosphere.
+            </p>
+        </div>
+
+        <div class="card theme-card">
+            <h3>Gold Theme</h3>
+            <img
+                    src="theme_gold.png"
+                    alt="Gold baccarat display theme shown in Modern Layout"
+            >
+            <p class="caption">
+                Dark premium theme with gold accents designed for elegant casino interiors.
+            </p>
+        </div>
+
+        <div class="card theme-card">
+            <h3>Silk Theme</h3>
+            <img
+                    src="theme_silk.png"
+                    alt="Silk baccarat display theme shown in Modern Layout"
+            >
+            <p class="caption">
+                Light elegant theme with refined tones suited for modern casino interiors.
+            </p>
+        </div>
+    </div>
+
+    <div class="cards-3">
+        <div class="card theme-card">
+            <h3>Emerald Theme</h3>
+            <img
+                    src="theme_emerald.png"
+                    alt="Emerald baccarat display theme shown in Modern Layout"
+            >
+            <p class="caption">
+                Emerald green casino-inspired theme that blends naturally with traditional table felt.
+            </p>
+        </div>
+
+        <div class="card theme-card">
+            <h3>Ivory Theme</h3>
+            <img
+                    src="theme_ivory.png"
+                    alt="Ivory baccarat display theme shown in Modern Layout"
+            >
+            <p class="caption">
+                Bright and clean light theme designed for maximum readability in well-lit rooms.
+            </p>
+        </div>
+
+        <div class="card theme-card">
+            <h3>Obsidian Theme</h3>
+            <img
+                    src="theme_obsidian.png"
+                    alt="Obsidian baccarat display theme shown in Modern Layout"
+            >
+            <p class="caption">
+                Minimal dark theme focused on contrast, clarity and distraction-free gameplay.
+            </p>
+        </div>
+    </div>
+
+    <div class="cards-3">
+        <div class="card theme-card">
+            <h3>Porcelain Theme</h3>
+            <img
+                    src="theme_porcelain.png"
+                    alt="Porcelain baccarat display theme shown in Modern Layout"
+            >
+            <p class="caption">
+                Soft neutral palette inspired by classic casino signage and scoreboards.
+            </p>
+        </div>
+
+        <div class="card theme-card">
+            <h3>Ruby Theme</h3>
+            <img
+                    src="theme_ruby.png"
+                    alt="Ruby baccarat display theme shown in Modern Layout"
+            >
+            <p class="caption">
+                Deep red palette delivering strong contrast and excellent road visibility.
+            </p>
+        </div>
+
+        <div class="card theme-card">
+            <h3>Titan Theme</h3>
+            <img
+                    src="theme_titan.png"
+                    alt="Titan baccarat display theme shown in Modern Layout"
+            >
+            <p class="caption">
+                High-contrast professional theme designed for maximum visibility on large displays.
+            </p>
+        </div>
+    </div>
+
+    <div class="placeholder-note">
+        <p class="muted">
+        Custom themes can be developed to match your casino branding, table design or corporate identity.
+        </p>
+    </div>
+</section>
+
+<!-- PAGE 8 -->
+<section class="page tight">
+    <h2 class="section-title">System Integration and Table Management</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Wireless Dealer Keypad</h3>
+            <p>
+                The system supports fast and convenient manual input through a dedicated wireless keypad designed specifically for baccarat tables.
+            </p>
+            <p>
+                The interface is optimized to minimize dealer actions while maintaining quick and accurate result entry.
+            </p>
+            <img
+                    src="control_unit.png"
+                    alt="Compact controller used with baccarat display system"
+            >
+        </div>
+
+        <div>
+            <img
+                    src="keypad.png"
+                    alt="Top view of baccarat wireless dealer keypad">
+
+            <div class="spacer-12"></div>
+
+            <h3>System Integration</h3>
+            <ul>
+                <li>Manual keypad input</li>
+                <li>iShoe support (Light &amp; Wonder)</li>
+                <li>Smart Shoe compatibility</li>
+                <li>Video recognition systems</li>
+                <li>Open API integration</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="spacer-12"></div>
+
+    <div class="two-col">
+        <div>
+            <h3>Compact Hardware Setup</h3>
+            <p>
+                A compact controller is mounted directly behind the display and can be powered from the monitor itself.
+            </p>
+            <p>
+                The system runs on an Android-based platform with Wi-Fi connectivity, enabling flexible installation with minimal cabling.
+            </p>
+            <p>
+                Fast system startup ensures the display returns to operation quickly after power interruptions.
+            </p>
+            <p>
+                Designed for reliable day-to-day casino operations with minimal dealer interaction
+                and flexible integration with existing table systems.
+            </p>
+        </div>
+
+        <div>
+            <h3>Table Management</h3>
+            <ul>
+                <li>Extended table limits display with differential indicator</li>
+                <li>Configurable table number display</li>
+                <li>Configurable shoe and hand numbering</li>
+                <li>Instant result correction (Undo)</li>
+                <li>Table closed status display</li>
+                <li>Shoe history with replay mode</li>
+                <li>Demo mode for testing and demonstrations</li>
+                <li>Software updates via internet or local network</li>
+            </ul>
+        </div>
+    </div>
+
+    <p class="small-note" style="text-align:center; margin-top:10px;">
+        Player-Centered Layout • Precision Road Rendering • Extensible Display Platform
+    </p>
+
+    <div class="contact-mini">
+        <div>
+            <p><strong>Zorin Displays</strong></p>
+            <p>Professional display systems for live casino tables</p>
+        </div>
+
+        <div>
+            <p><strong>Website</strong></p>
+            <p>zorindisplays.com</p>
+        </div>
+
+        <div>
+            <p><strong>Email</strong></p>
+            <p>info@set-europe.com</p>
+            <p><strong>Phone</strong></p>
+            <p>+34 629 832 519</p>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

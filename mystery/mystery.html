@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mystery Jackpot – Product Brochure</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        @page {
+            size: A4;
+            margin: 18mm;
+        }
+
+        :root{
+            --text:#171717;
+            --muted:#5f5f5f;
+            --line:#e9e9e9;
+            --soft:#f7f7f7;
+            --accent:#c81e2b;
+        }
+
+        *{
+            box-sizing:border-box;
+        }
+
+        body{
+            margin:0;
+            font-family:Montserrat, sans-serif;
+            color:var(--text);
+            line-height:1.45;
+            background:#fff;
+        }
+
+        .page{
+            page-break-after:always;
+            min-height:calc(297mm - 36mm);
+            position:relative;
+        }
+
+        .page:last-child{
+            page-break-after:auto;
+        }
+
+        h1,h2,h3{
+            font-family:Poppins, sans-serif;
+            margin:0;
+            color:#111;
+        }
+
+        h1{
+            font-size:42px;
+            line-height:1.05;
+            letter-spacing:-0.02em;
+        }
+
+        h2{
+            font-size:26px;
+            line-height:1.15;
+            padding-bottom:8px;
+            margin-bottom:18px;
+            border-bottom:2px solid var(--line);
+        }
+
+        h3{
+            font-size:18px;
+            line-height:1.2;
+            margin-bottom:8px;
+        }
+
+        p{
+            font-size:14px;
+            margin:0 0 12px 0;
+        }
+
+        .lead{
+            font-size:15px;
+            color:#f4f4f4;
+            max-width:460px;
+            margin:0;
+        }
+
+        .muted{
+            color:var(--muted);
+        }
+
+        ul{
+            margin:0;
+            padding-left:18px;
+            font-size:14px;
+        }
+
+        li{
+            margin-bottom:8px;
+        }
+
+        img{
+            display:block;
+            max-width:100%;
+            height:auto;
+            border-radius:8px;
+        }
+
+        .cover-hero{
+            position:relative;
+            height:255mm;
+            overflow:hidden;
+            border-radius:10px;
+            background:#111;
+        }
+
+        .cover-hero img{
+            width:100%;
+            height:100%;
+            object-fit:cover;
+            border-radius:10px;
+        }
+
+        .cover-text{
+            position:absolute;
+            left:34px;
+            bottom:34px;
+            color:#fff;
+            max-width:500px;
+        }
+
+        .cover-text h1{
+            color:#fff;
+            margin-bottom:10px;
+        }
+
+        .cover-kicker{
+            display:inline-block;
+            font-size:12px;
+            font-weight:600;
+            letter-spacing:0.12em;
+            text-transform:uppercase;
+            color:#f0f0f0;
+            margin-bottom:12px;
+            padding:6px 10px;
+            border:1px solid rgba(255,255,255,0.25);
+            border-radius:999px;
+        }
+
+        .cover-subtitle{
+            font-family:Poppins, sans-serif;
+            font-size:20px;
+            font-weight:500;
+            margin-bottom:12px;
+            color:#fff;
+        }
+
+        .section-title{
+            position:relative;
+            padding-left:16px;
+        }
+
+        .section-title::before{
+            content:"";
+            position:absolute;
+            left:0;
+            top:4px;
+            width:4px;
+            height:20px;
+            background:var(--accent);
+            border-radius:2px;
+        }
+
+        .two-col{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:28px;
+            align-items:start;
+        }
+
+        .cards-2{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+            align-items:start;
+        }
+
+        .cards-3{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+            gap:16px;
+            align-items:start;
+        }
+
+        .features{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:22px 30px;
+            margin-top:8px;
+        }
+
+        .feature{
+            display:flex;
+            gap:14px;
+            align-items:flex-start;
+            padding:14px;
+            border:1px solid var(--line);
+            border-radius:8px;
+            background:#fafafa;
+        }
+
+        .feature-icon{
+            width:36px;
+            height:36px;
+            flex-shrink:0;
+            margin-top:1px;
+        }
+
+        .feature-text h3{
+            font-size:16px;
+            margin-bottom:6px;
+        }
+
+        .feature-text p{
+            font-size:13px;
+            color:var(--muted);
+            margin:0;
+        }
+
+        .card{
+            border:none;
+            background:transparent;
+            border-radius:0;
+            padding:0;
+        }
+
+        .card img{
+            width:100%;
+            margin:10px 0 8px;
+            border-radius:8px;
+            box-shadow:0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        .card.compact{
+            padding:14px;
+        }
+
+        .card.compact h3{
+            margin-bottom:6px;
+        }
+
+        .card.compact img{
+            margin:8px 0 10px;
+            border-radius:6px;
+        }
+
+        .caption{
+            font-size:13px;
+            color:var(--muted);
+            margin:0;
+        }
+
+        .hero-image{
+            margin:14px 0 18px;
+        }
+
+        .kpi-band{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:12px;
+            margin-top:16px;
+        }
+
+        .kpi{
+            border:1px solid var(--line);
+            border-radius:10px;
+            padding:12px;
+            background:var(--soft);
+        }
+
+        .kpi strong{
+            display:block;
+            font-family:Poppins,sans-serif;
+            font-size:14px;
+            margin-bottom:4px;
+        }
+
+        .kpi span{
+            font-size:12px;
+            color:var(--muted);
+        }
+
+        .layout-intro{
+            margin-top:14px;
+            padding:16px 18px;
+            border:1px solid var(--line);
+            border-radius:10px;
+            background:var(--soft);
+        }
+
+        .layout-intro p:last-child{
+            margin-bottom:0;
+        }
+
+        .small-note{
+            font-size:13px;
+            color:var(--muted);
+        }
+
+        .contact-mini{
+            margin-top:20px;
+            padding-top:14px;
+            border-top:1px solid var(--line);
+            display:grid;
+            grid-template-columns:1.2fr 1fr 1fr;
+            gap:18px;
+            align-items:start;
+        }
+
+        .contact-mini p{
+            margin:0 0 6px 0;
+            font-size:12px;
+            color:var(--muted);
+        }
+
+        .contact-mini strong{
+            color:var(--text);
+        }
+
+        .spacer-8{ height:8px; }
+        .spacer-12{ height:12px; }
+
+        .system-band{
+            margin-top:24px;
+            padding-top:18px;
+            border-top:1px solid var(--line);
+        }
+
+        .system-band img{
+            width:100%;
+            max-width:720px;
+            margin:auto;
+            border-radius:6px;
+        }
+
+        .system-caption{
+            text-align:center;
+            font-size:12px;
+            color:var(--muted);
+            margin-top:8px;
+        }
+
+        .center-note{
+            text-align:center;
+            font-size:13px;
+            color:var(--muted);
+            margin-top:12px;
+        }
+
+        .tight p{
+            margin-bottom:10px;
+        }
+
+        .tight ul li{
+            margin-bottom:6px;
+        }
+
+        .highlight-box{
+            padding:18px 20px;
+            border:1px solid var(--line);
+            border-radius:10px;
+            background:var(--soft);
+        }
+
+        .placeholder-note{
+            margin-top:10px;
+            font-size:12px;
+            color:var(--muted);
+        }
+
+        .wide-card{
+            grid-column:1 / -1;
+        }
+
+        .steps{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:18px;
+            margin-top:20px;
+        }
+
+        .step{
+            text-align:center;
+        }
+
+        .step img{
+            width:100%;
+            border-radius:8px;
+            box-shadow:0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        .step-title{
+            font-family:Poppins,sans-serif;
+            font-size:13px;
+            margin-top:8px;
+            color:#333;
+        }
+
+        .image-caption{
+            margin-top:10px;
+            font-size:12px;
+            color:var(--muted);
+            line-height:1.4;
+        }
+
+        .flow-step{
+            position:relative;
+        }
+
+        .flow-badge{
+            position:absolute;
+            top:20px;
+            left:10px;
+            width:28px;
+            height:28px;
+            border-radius:50%;
+            color:#fff;
+            font-family:Poppins,sans-serif;
+            font-size:24px;
+            font-weight:800;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            z-index:2;
+        }
+
+        .economy-top{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:18px 24px;
+            margin-bottom:14px;
+        }
+
+        .economy-top h3{
+            margin-bottom:6px;
+            font-size:16px;
+        }
+
+        .economy-top p{
+            margin-bottom:0;
+            font-size:13px;
+            line-height:1.4;
+        }
+
+        .economy-table{
+            width:100%;
+            border-collapse:collapse;
+            margin-top:12px;
+            font-size:12px;
+        }
+
+        .economy-table th,
+        .economy-table td{
+            border:1px solid var(--line);
+            padding:7px 9px;
+            text-align:left;
+            vertical-align:top;
+        }
+
+        .economy-table th{
+            background:var(--soft);
+            font-family:Poppins,sans-serif;
+            font-size:12px;
+            font-weight:600;
+        }
+
+        .economy-table td:first-child{
+            font-weight:600;
+            width:26%;
+        }
+
+        .economy-section{
+            margin-top:16px;
+        }
+
+        .economy-section h3{
+            margin-bottom:8px;
+            font-size:16px;
+        }
+
+        .rtp-note{
+            margin-top:6px;
+            font-size:12px;
+            color:var(--text);
+            font-weight:600;
+        }
+
+        .try-box{
+            margin-top:10px;
+            padding:14px 16px;
+            border:1px solid var(--line);
+            border-radius:10px;
+            background:var(--soft);
+        }
+
+        .try-box h3{
+            margin-bottom:8px;
+            font-size:16px;
+        }
+
+        .try-box p{
+            font-size:12px;
+            margin-bottom:8px;
+        }
+
+        .calc-header{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:10px 12px;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+
+        .calc-header-item{
+            text-align:center;
+            padding:10px 8px;
+            border:1px solid var(--line);
+            border-radius:10px;
+            background:#fff;
+        }
+
+        .calc-header-item img{
+            width:40px;
+            height:40px;
+            object-fit:contain;
+            margin:0 auto 6px;
+            display:block;
+        }
+
+        .calc-header-item strong{
+            display:block;
+            font-size:12px;
+            font-family:Poppins,sans-serif;
+            font-weight:600;
+            color:var(--text);
+        }
+
+        .calc-header-item span{
+            display:block;
+            font-size:11px;
+            color:var(--muted);
+            margin-top:2px;
+        }
+
+        .calc-header-item:nth-child(1){ border-top:3px solid #c81e2b; }
+        .calc-header-item:nth-child(2){ border-top:3px solid #d4af37; }
+        .calc-header-item:nth-child(3){ border-top:3px solid #1e8c5c; }
+        .calc-header-item:nth-child(4){ border-top:3px solid #444; }
+
+        .calc-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:10px 12px;
+            margin-top:10px;
+        }
+
+        .calc-field label{
+            display:block;
+            font-size:11px;
+            color:var(--muted);
+            margin-bottom:4px;
+        }
+
+        .calc-field input{
+            width:100%;
+            padding:7px 8px;
+            border:1px solid var(--line);
+            border-radius:6px;
+            font-size:12px;
+            font-family:Montserrat,sans-serif;
+            background:#fff;
+        }
+
+        .calc-results{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:10px 12px;
+            margin-top:12px;
+        }
+
+        .calc-result{
+            padding:8px 10px;
+            border:1px solid var(--line);
+            border-radius:8px;
+            background:#fff;
+        }
+
+        .calc-result strong{
+            display:block;
+            font-size:11px;
+            color:var(--muted);
+            margin-bottom:3px;
+        }
+
+        .calc-result span{
+            font-size:13px;
+            font-weight:600;
+            color:var(--text);
+        }
+
+        .calc-result.ruby{ border-top:3px solid #c81e2b; }
+        .calc-result.gold{ border-top:3px solid #d4af37; }
+        .calc-result.jade{ border-top:3px solid #1e8c5c; }
+        .calc-result.neutral{ border-top:3px solid #444; }
+
+        .footnote{
+            margin-top:10px;
+            font-size:11px;
+            color:var(--muted);
+            line-height:1.35;
+        }
+    </style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<section class="page">
+    <div class="cover-hero">
+        <img
+                src="mystery_cover.png"
+                alt="Hero image for Mystery Jackpot showing central jackpot display and winning atmosphere"
+        >
+        <div class="cover-text">
+            <div class="cover-kicker">Product Brochure</div>
+            <h1>Mystery Jackpot</h1>
+            <div class="cover-subtitle">Progressive Jackpot made practical</div>
+            <p class="lead">
+                A centralized progressive jackpot system designed for live table games, built for real casino floors with practical installation, flexible configuration and strong player visibility.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 2 -->
+<section class="page">
+    <h2 class="section-title">Customer-Driven Design</h2>
+
+    <div class="two-col">
+        <div>
+            <p>
+                Mystery Jackpot was originally developed in partnership with a major casino operator managing multiple properties in Africa.
+            </p>
+            <p>
+                The original goal was clear: create a practical progressive jackpot system for a small gaming floor with limited installation space and a restricted hardware budget.
+            </p>
+            <p>
+                Instead of placing a dedicated display on every table, the solution was built around a single central jackpot screen visible from across the casino floor.
+            </p>
+        </div>
+
+        <div>
+            <p>
+                This design made it possible to keep table hardware simple, using only a compact Android-based controller and a wireless keypad at each active table.
+            </p>
+            <p>
+                The result is a flexible, budget-friendly and highly configurable progressive jackpot platform designed for real-world casino operations.
+            </p>
+            <div class="highlight-box">
+                <h3>Why it matters</h3>
+                <p>
+                    Mystery Jackpot was not designed as a concept product. It was built to meet real operator requirements around cost, space, visibility and usability.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="system-band">
+        <img
+                src="casino_hall.png"
+                alt="System overview showing central jackpot display, table devices and dealer keypads"
+        >
+        <div class="system-caption">
+            Centralized jackpot presentation with configurable table units, mirrored displays and wireless dealer input.
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 3 -->
+<section class="page">
+    <h2 class="section-title">Key Advantages</h2>
+
+    <p class="muted">
+        Mystery Jackpot was designed specifically for live casino environments where practicality, visibility, operator control and player excitement are all essential.
+    </p>
+
+    <div class="features">
+        <div class="feature">
+            <img class="feature-icon" src="https://placehold.co/72x72?text=1" alt="Central display icon">
+            <div class="feature-text">
+                <h3>Centralized Jackpot Display</h3>
+                <p>A single large screen can present jackpot values and participation status for multiple tables.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="https://placehold.co/72x72?text=2" alt="Participation icon">
+            <div class="feature-text">
+                <h3>Live Participation Visibility</h3>
+                <p>Players and staff can immediately see which tables and boxes are participating in the current round.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="https://placehold.co/72x72?text=3" alt="Dealer input icon">
+            <div class="feature-text">
+                <h3>Simple Dealer Workflow</h3>
+                <p>Bonus bets are entered quickly through a wireless keypad without requiring expensive table sensors.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="https://placehold.co/72x72?text=4" alt="Configurable jackpot icon">
+            <div class="feature-text">
+                <h3>Configurable Jackpot Economy</h3>
+                <p>Bonus bet amount, contributions, probabilities and starting values can all be adjusted by the operator.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="https://placehold.co/72x72?text=5" alt="Any game icon">
+            <div class="feature-text">
+                <h3>Works with Any Game</h3>
+                <p>The platform is not limited to a single table game and can be adapted to many gaming environments.</p>
+            </div>
+        </div>
+
+        <div class="feature">
+            <img class="feature-icon" src="https://placehold.co/72x72?text=6" alt="Customization icon">
+            <div class="feature-text">
+                <h3>Operator-Friendly Customization</h3>
+                <p>Jackpot behavior, graphics, contribution logic and payout flow can be tailored to operator requirements.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 4 -->
+<section class="page">
+    <h2 class="section-title">Central Jackpot Display</h2>
+
+    <img
+            class="hero-image"
+            src="main_screen.png"
+            alt="Main Mystery Jackpot display showing Ruby, Gold and Jade jackpot values and active table positions"
+    >
+
+    <div class="two-col">
+        <div>
+            <h3>Visible from Across the Floor</h3>
+            <p>
+                The central display presents all jackpot levels together with live participation status in a format visible from multiple tables.
+            </p>
+            <p>
+                This makes the jackpot itself part of the floor atmosphere without requiring a dedicated monitor at every table.
+            </p>
+        </div>
+
+        <div>
+            <h3>Live System State</h3>
+            <p>
+                Beyond jackpot values, the display also shows which tables are active, which boxes have entered the current round and which positions recently participated in the draw.
+            </p>
+            <p>
+                This gives players and staff a transparent view of the current jackpot activity.
+            </p>
+        </div>
+    </div>
+
+    <div class="kpi-band">
+        <div class="kpi">
+            <strong>3 Jackpot Levels</strong>
+            <span>Ruby, Gold and Jade</span>
+        </div>
+        <div class="kpi">
+            <strong>Central Visibility</strong>
+            <span>Designed for multi-table floors</span>
+        </div>
+        <div class="kpi">
+            <strong>Live Participation</strong>
+            <span>Active boxes shown on screen</span>
+        </div>
+        <div class="kpi">
+            <strong>Practical Deployment</strong>
+            <span>One main display for multiple tables</span>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 5 -->
+<section class="page">
+    <h2 class="section-title">Adaptable Display Configurations</h2>
+
+    <p class="muted">
+        Mystery Jackpot can be deployed in different display configurations depending on floor layout, visibility requirements and available budget.
+    </p>
+
+    <div class="cards-3">
+        <div class="card compact">
+            <h3>Central Display</h3>
+            <img
+                    src="plan1.svg"
+                    alt="Single central Mystery Jackpot display serving the entire gaming floor"
+            >
+            <p class="caption">
+                One large display presents jackpot values and participation status for the full gaming floor.
+            </p>
+        </div>
+
+        <div class="card compact">
+            <h3>Mirrored Displays</h3>
+            <img
+                    src="plan2.svg"
+                    alt="Multiple mirrored Mystery Jackpot displays for larger casino spaces"
+            >
+            <p class="caption">
+                Larger or more complex spaces may use multiple mirrored displays for improved visibility.
+            </p>
+        </div>
+
+        <div class="card compact">
+            <h3>Display per Table</h3>
+            <img
+                    src="plan3.svg"
+                    alt="Mystery Jackpot local display installed at an individual table"
+            >
+            <p class="caption">
+                Where required, the same platform can also be used with a local display at each table.
+            </p>
+        </div>
+    </div>
+
+    <div class="layout-intro">
+        <h3>Flexible by Design</h3>
+        <p>
+            Mystery Jackpot is not limited to a single installation model. The same system can be adapted to compact floors, larger halls or table-by-table deployments depending on the operator’s needs.
+        </p>
+        <p>
+            In table-specific installations, local screens may present not only jackpot information, but also additional content such as table limits, game rules or service messages.
+        </p>
+    </div>
+</section>
+
+<!-- PAGE 6 -->
+<section class="page">
+    <h2 class="section-title">How Players Join the Jackpot</h2>
+
+    <div class="two-col">
+        <div>
+            <img
+                    class="hero-image"
+                    src="bonus_bet.png"
+                    alt="Bonus bet graphic shown on the table for Mystery Jackpot participation"
+            >
+            <div class="image-caption">
+                <strong>Bonus Bet Layout</strong><br>
+                Each table position includes a dedicated bonus bet area.
+                Boxes follow the same <strong>1–9 keypad layout</strong> used by the dealer for quick and intuitive entry.
+                Table felt layouts can be supplied by us or provided as digital artwork.
+            </div>
+        </div>
+
+        <div>
+            <h3>One Bonus Bet per Round</h3>
+            <p>
+                Players participate by placing a fixed bonus bet on one or more table positions.
+                Each participating position becomes a separate entry in the jackpot draw for the current round.
+            </p>
+
+            <h3>Dealer Confirmation</h3>
+            <p>
+                The dealer marks the participating boxes using the wireless keypad.
+                Once all bonus bets are collected, the dealer confirms the entries and sends them into the draw with a single action.
+            </p>
+
+            <h3>Clear Participation Logic</h3>
+            <p>
+                Filled circles indicate newly accepted entries, while outlined circles show the boxes that have just been sent into the draw.
+                This gives players and staff a clear visual understanding of which entries are currently participating.
+            </p>
+        </div>
+    </div>
+
+    <div class="layout-intro">
+        <h3>Simple and Transparent</h3>
+        <p>
+            The participation flow is designed to be immediately understandable for both dealers and players. It requires minimal dealer actions while clearly showing who is involved in the current jackpot round.
+        </p>
+    </div>
+
+    <div class="steps">
+        <div class="step">
+            <img src="step_player_bet.png" alt="Player placing bonus bet on the table">
+            <div class="step-title">1. Player Places Bonus Bet</div>
+        </div>
+
+        <div class="step">
+            <img src="step_dealer_keypad.png" alt="Dealer confirming jackpot participation using wireless keypad">
+            <div class="step-title">2. Dealer Marks the Box</div>
+        </div>
+
+        <div class="step">
+            <img src="step_boxes_active.png" alt="Active boxes participating in the jackpot draw">
+            <div class="step-title">3. Box Becomes Active</div>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 7 -->
+<section class="page">
+    <h2 class="section-title">Jackpot Round Flow</h2>
+
+    <p class="muted" style="max-width:720px;margin-bottom:16px;">
+        A complete jackpot round is visible to both players and dealers — from bonus bet confirmation to payout and automatic reset.
+    </p>
+
+    <div class="cards-2 flow">
+
+        <div class="card flow-step">
+            <div class="flow-badge">1</div>
+            <img
+                    src="active_bets.png"
+                    alt="Mystery Jackpot screen showing active participating boxes before the draw"
+            >
+            <h3>Bets Collected</h3>
+            <p class="caption">
+                Participating boxes are marked and shown live on the display.
+            </p>
+        </div>
+
+        <div class="card flow-step">
+            <div class="flow-badge">2</div>
+            <img
+                    src="coins_flying.png"
+                    alt="Mystery Jackpot animation showing coins flying from active boxes into jackpot values"
+            >
+            <h3>Contributions Animated</h3>
+            <p class="caption">
+                Coins animate from table positions into the jackpots.
+            </p>
+        </div>
+
+        <div class="card flow-step">
+            <div class="flow-badge">3</div>
+            <img
+                    src="win_trigger.png"
+                    alt="Mystery Jackpot screen showing triggered jackpot"
+            >
+            <h3>Win Trigger</h3>
+            <p class="caption">
+                The winning jackpot level is isolated and the draw result is announced.
+            </p>
+        </div>
+
+        <div class="card flow-step featured">
+            <div class="flow-badge">4</div>
+            <img
+                    src="win_reveal.png"
+                    alt="Mystery Jackpot animation connecting jackpot to winning box"
+            >
+            <h3>Win Reveal Animation</h3>
+            <p class="caption">
+                The jackpot connects to the winning table position and highlights the box.
+            </p>
+        </div>
+
+        <div class="card flow-step">
+            <div class="flow-badge">5</div>
+            <img
+                    src="payout.png"
+                    alt="Mystery Jackpot payout confirmation screen"
+            >
+            <h3>Dealer Payout Confirmation</h3>
+            <p class="caption">
+                The dealer confirms the winning box before the payout.
+            </p>
+        </div>
+
+        <div class="card flow-step">
+            <div class="flow-badge">6</div>
+            <img
+                    src="reset.png"
+                    alt="Mystery Jackpot system ready for next round"
+            >
+            <h3>Jackpot Reset</h3>
+            <p class="caption">
+                The jackpot resets to its base value and the next round begins.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- PAGE 8 -->
+<section class="page">
+    <h2 class="section-title">Configurable Jackpot Economy</h2>
+
+    <div class="economy-top">
+        <div>
+            <h3>One Bonus Bet, Three Jackpots</h3>
+            <p>
+                A single fixed bonus bet can contribute simultaneously to all jackpot levels.
+                Contribution values are independently configurable for each jackpot.
+            </p>
+        </div>
+
+        <div>
+            <h3>Independent Probabilities</h3>
+            <p>
+                Each jackpot level has its own configurable hit probability, allowing operators to define the desired jackpot behavior for different player segments and table economics.
+            </p>
+        </div>
+
+        <div>
+            <h3>Automatic RTP Calculation</h3>
+            <p>
+                When jackpot values, contributions or probabilities are adjusted, the system automatically calculates the resulting RTP and displays it to the operator.
+            </p>
+        </div>
+
+        <div>
+            <h3>Operator Control</h3>
+            <p>
+                Starting jackpot values are configurable for each level, giving operators full control over growth behavior and payout strategy.
+            </p>
+        </div>
+    </div>
+
+    <div class="economy-section">
+        <p class="muted">
+            Below are two balanced <strong>98% RTP</strong> example profiles for different currencies.
+        </p>
+
+        <div class="economy-head">
+            <h3>Example Profile — CFA</h3>
+            <div class="economy-bet">Bonus Bet: 1,000 CFA</div>
+        </div>
+        <table class="economy-table">
+            <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Ruby</th>
+                <th>Gold</th>
+                <th>Jade</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Start Value</td>
+                <td>5,000,000 CFA</td>
+                <td>500,000 CFA</td>
+                <td>50,000 CFA</td>
+            </tr>
+            <tr>
+                <td>Contribution</td>
+                <td>250 CFA</td>
+                <td>250 CFA</td>
+                <td>330 CFA</td>
+            </tr>
+            <tr>
+                <td>Hit Frequency</td>
+                <td>1 in 100,000</td>
+                <td>1 in 10,000</td>
+                <td>1 in 1,000</td>
+            </tr>
+            <tr>
+                <td>Average Jackpot*</td>
+                <td>30,000,000 CFA</td>
+                <td>3,000,000 CFA</td>
+                <td>380,000 CFA</td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="rtp-note">Total RTP: 98.0%</p>
+    </div>
+
+    <div class="economy-section">
+        <div class="economy-head">
+            <h3>Example Profile — EUR</h3>
+            <div class="economy-bet">Bonus Bet: €1.00</div>
+        </div>
+        <table class="economy-table">
+            <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Ruby</th>
+                <th>Gold</th>
+                <th>Jade</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Start Value</td>
+                <td>€5,000</td>
+                <td>€500</td>
+                <td>€80</td>
+            </tr>
+            <tr>
+                <td>Contribution</td>
+                <td>€0.25</td>
+                <td>€0.25</td>
+                <td>€0.30</td>
+            </tr>
+            <tr>
+                <td>Hit Frequency</td>
+                <td>1 in 100,000</td>
+                <td>1 in 10,000</td>
+                <td>1 in 1,000</td>
+            </tr>
+            <tr>
+                <td>Average Jackpot*</td>
+                <td>€30,000</td>
+                <td>€3,000</td>
+                <td>€380</td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="rtp-note">Total RTP: 98.0%</p>
+    </div>
+
+    <div class="footnote">
+        * Average jackpot is a simplified illustrative value based on start value plus contribution growth over the configured hit interval.
+    </div>
+</section>
+
+<!-- PAGE 9 -->
+<section class="page">
+    <h2 class="section-title">Interactive RTP Calculator</h2>
+
+    <div class="try-box">
+        <h3>Try It Yourself</h3>
+        <p>
+            Adjust your own bonus bet, start values, contributions and hit frequencies below.
+        </p>
+
+        <div class="calc-header">
+            <div class="calc-header-item">
+                <img src="ruby_icon.png" alt="Ruby jackpot icon">
+                <strong>Ruby</strong>
+                <span>Start value / contribution / hit rate</span>
+            </div>
+
+            <div class="calc-header-item">
+                <img src="gold_icon.png" alt="Gold jackpot icon">
+                <strong>Gold</strong>
+                <span>Start value / contribution / hit rate</span>
+            </div>
+
+            <div class="calc-header-item">
+                <img src="jade_icon.png" alt="Jade jackpot icon">
+                <strong>Jade</strong>
+                <span>Start value / contribution / hit rate</span>
+            </div>
+
+            <div class="calc-header-item">
+                <img src="bet_icon.png" alt="Bonus bet icon">
+                <strong>Bonus Bet</strong>
+                <span>Base wager / currency</span>
+            </div>
+        </div>
+
+        <div class="calc-grid">
+            <div class="calc-field">
+                <label for="calcRubyStart">Ruby Start</label>
+                <input id="calcRubyStart" type="number" step="0.01" value="5000">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcGoldStart">Gold Start</label>
+                <input id="calcGoldStart" type="number" step="0.01" value="500">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcJadeStart">Jade Start</label>
+                <input id="calcJadeStart" type="number" step="0.01" value="80">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcBet">Bonus Bet</label>
+                <input id="calcBet" type="number" step="0.01" value="1.00">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcRubyContrib">Ruby Contribution</label>
+                <input id="calcRubyContrib" type="number" step="0.01" value="0.25">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcGoldContrib">Gold Contribution</label>
+                <input id="calcGoldContrib" type="number" step="0.01" value="0.25">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcJadeContrib">Jade Contribution</label>
+                <input id="calcJadeContrib" type="number" step="0.01" value="0.30">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcCurrency">Currency Symbol</label>
+                <input id="calcCurrency" type="text" value="€">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcRubyHit">Ruby Hit Frequency</label>
+                <input id="calcRubyHit" type="number" step="1" value="100000">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcGoldHit">Gold Hit Frequency</label>
+                <input id="calcGoldHit" type="number" step="1" value="10000">
+            </div>
+
+            <div class="calc-field">
+                <label for="calcJadeHit">Jade Hit Frequency</label>
+                <input id="calcJadeHit" type="number" step="1" value="1000">
+            </div>
+        </div>
+
+        <div class="calc-results">
+            <div class="calc-result ruby">
+                <strong>Ruby Average Jackpot</strong>
+                <span id="calcRubyAvg">€30,000.00</span>
+            </div>
+
+            <div class="calc-result gold">
+                <strong>Gold Average Jackpot</strong>
+                <span id="calcGoldAvg">€3,000.00</span>
+            </div>
+
+            <div class="calc-result jade">
+                <strong>Jade Average Jackpot</strong>
+                <span id="calcJadeAvg">€380.00</span>
+            </div>
+
+            <div class="calc-result neutral">
+                <strong>Total RTP</strong>
+                <span id="calcRtp">98.00%</span>
+            </div>
+
+            <div class="calc-result ruby">
+                <strong>Ruby RTP Contribution</strong>
+                <span id="calcRubyRtp">25.00%</span>
+            </div>
+
+            <div class="calc-result gold">
+                <strong>Gold RTP Contribution</strong>
+                <span id="calcGoldRtp">25.00%</span>
+            </div>
+
+            <div class="calc-result jade">
+                <strong>Jade RTP Contribution</strong>
+                <span id="calcJadeRtp">30.00%</span>
+            </div>
+
+            <div class="calc-result neutral">
+                <strong>Base RTP from Start Values</strong>
+                <span id="calcBaseRtp">18.00%</span>
+            </div>
+        </div>
+
+        <p class="small-note">
+            Best viewed in <strong>Adobe Acrobat Reader on desktop</strong> when exported to interactive PDF.
+            Browser-based and mobile PDF viewers may not fully support calculation fields.
+        </p>
+    </div>
+
+    <div class="footnote">
+        This calculator is intended for illustrative planning and sales demonstration purposes.
+        Final deployed settings should always be reviewed against the operator’s target math profile.
+    </div>
+</section>
+
+<!-- PAGE 10 -->
+<section class="page">
+    <h2 class="section-title">Unified Device Platform</h2>
+
+    <div class="system-band">
+        <img
+                src="controller_keypad.png"
+                alt="Mystery Jackpot controller and wireless dealer keypad"
+        >
+        <div class="system-caption">
+            Compact Android controller and wireless dealer keypad.
+        </div>
+    </div>
+
+    <div class="two-col">
+        <div>
+            <h3>Single Platform</h3>
+            <p>
+                The same device platform powers both the jackpot display and table units.
+                A single compact Android controller runs the entire system, simplifying
+                installation, maintenance and updates.
+            </p>
+
+            <h3>Flexible Roles</h3>
+            <p>
+                The device can operate either as a central display or as a table unit,
+                depending on configuration. This allows casinos to deploy the system in
+                different layouts without requiring different hardware.
+            </p>
+        </div>
+
+        <div>
+            <h3>Compact Hardware</h3>
+            <p>
+                The controller is mounted directly behind the display and can be powered
+                from the monitor itself. Built-in Wi-Fi enables flexible installation with
+                minimal cabling.
+            </p>
+
+            <h3>Dealer Input</h3>
+            <p>
+                Dealers interact with the system using a wireless keypad designed for
+                fast and reliable entry of participating boxes and jackpot confirmations.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 11 -->
+<section class="page">
+    <h2 class="section-title">Operator Interface and Reporting</h2>
+
+    <img
+            class="hero-image"
+            src="operator_interface.png"
+            alt="Mystery Jackpot operator web interface showing configuration and reporting tools"
+    >
+
+    <div class="two-col">
+        <div>
+            <h3>Web-Based Control Panel</h3>
+            <p>
+                Mystery Jackpot is managed through a secure web interface accessible
+                from any computer on the casino network.
+            </p>
+
+            <p>
+                Operators can configure jackpot values, contribution levels,
+                probabilities and table participation directly from the dashboard.
+            </p>
+        </div>
+
+        <div>
+            <h3>Monitoring and Reporting</h3>
+            <p>
+                The interface provides real-time visibility of jackpot values,
+                table activity and system status.
+            </p>
+
+            <p>
+                Historical data and logs allow operators to review jackpot events,
+                analyze system performance and verify operational history.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PAGE 12 -->
+<!-- PAGE -->
+<section class="page">
+    <h2 class="section-title">Practical by Design</h2>
+
+    <div class="two-col">
+        <div>
+            <h3>Built for Real Casino Floors</h3>
+            <p>
+                Mystery Jackpot was designed specifically for live table environments.
+                The system prioritizes clarity, reliability and minimal dealer actions,
+                ensuring that the game flow remains smooth during busy casino hours.
+            </p>
+
+            <p>
+                Visual feedback, simple participation logic and clear jackpot animations
+                help players immediately understand when they are participating in the draw.
+            </p>
+        </div>
+
+        <div>
+            <h3>Operational Simplicity</h3>
+            <p>
+                Dealers interact with the system through a small number of simple actions.
+                At the same time, operators retain full control over jackpot parameters,
+                table configuration and system behavior.
+            </p>
+
+            <p>
+                The platform is designed to integrate naturally into existing casino
+                operations without introducing unnecessary complexity.
+            </p>
+        </div>
+    </div>
+
+    <div class="layout-intro">
+        <h3>Continuous Development</h3>
+
+        <p>
+            We actively develop and extend the system together with our partners.
+            The platform is flexible and can be adapted to specific casino needs.
+        </p>
+
+        <p>
+            Custom features may include additional bonus mechanics, alternative jackpot
+            behaviors, or integration with existing casino systems and table equipment.
+        </p>
+
+        <p>
+            For example, table displays can optionally present table limits,
+            game rules or promotional information, and operators can introduce
+            additional bonus events that temporarily boost jackpots during
+            peak hours or periods of lower activity.
+        </p>
+    </div>
+
+    <p class="small-note" style="text-align:center; margin-top:18px;">
+        Customer-Driven Design • Centralized Visibility • Practical Progressive Jackpot Platform
+    </p>
+
+    <div class="contact-mini">
+        <div>
+            <p><strong>Zorin Displays</strong></p>
+            <p>Professional display systems for live casino tables</p>
+        </div>
+
+        <div>
+            <p><strong>Website</strong></p>
+            <p>zorindisplays.com</p>
+        </div>
+
+        <div>
+            <p><strong>Email</strong></p>
+            <p>info@set-europe.com</p>
+            <p><strong>Phone</strong></p>
+            <p>+34 629 832 519</p>
+        </div>
+    </div>
+</section>
+
+
+<script>
+    function formatMoney(symbol, value) {
+        if (!isFinite(value)) return symbol + '0.00';
+        return symbol + Number(value).toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+
+    function updateJackpotCalc() {
+        const bet = parseFloat(document.getElementById('calcBet').value) || 0;
+
+        const rubyStart = parseFloat(document.getElementById('calcRubyStart').value) || 0;
+        const goldStart = parseFloat(document.getElementById('calcGoldStart').value) || 0;
+        const jadeStart = parseFloat(document.getElementById('calcJadeStart').value) || 0;
+
+        const rubyContrib = parseFloat(document.getElementById('calcRubyContrib').value) || 0;
+        const goldContrib = parseFloat(document.getElementById('calcGoldContrib').value) || 0;
+        const jadeContrib = parseFloat(document.getElementById('calcJadeContrib').value) || 0;
+
+        const rubyHit = parseFloat(document.getElementById('calcRubyHit').value) || 0;
+        const goldHit = parseFloat(document.getElementById('calcGoldHit').value) || 0;
+        const jadeHit = parseFloat(document.getElementById('calcJadeHit').value) || 0;
+
+        const symbol = document.getElementById('calcCurrency').value || '';
+
+        const rubyAvg = rubyStart + rubyContrib * rubyHit;
+        const goldAvg = goldStart + goldContrib * goldHit;
+        const jadeAvg = jadeStart + jadeContrib * jadeHit;
+
+        const rubyRtp = bet > 0 ? (rubyContrib / bet) * 100 : 0;
+        const goldRtp = bet > 0 ? (goldContrib / bet) * 100 : 0;
+        const jadeRtp = bet > 0 ? (jadeContrib / bet) * 100 : 0;
+
+        const baseRtpRaw =
+            (rubyHit > 0 ? rubyStart / rubyHit : 0) +
+            (goldHit > 0 ? goldStart / goldHit : 0) +
+            (jadeHit > 0 ? jadeStart / jadeHit : 0);
+
+        const baseRtpPercent = bet > 0 ? (baseRtpRaw / bet) * 100 : 0;
+        const totalRtp = rubyRtp + goldRtp + jadeRtp + baseRtpPercent;
+
+        document.getElementById('calcRubyAvg').textContent = formatMoney(symbol, rubyAvg);
+        document.getElementById('calcGoldAvg').textContent = formatMoney(symbol, goldAvg);
+        document.getElementById('calcJadeAvg').textContent = formatMoney(symbol, jadeAvg);
+
+        document.getElementById('calcRubyRtp').textContent = rubyRtp.toFixed(2) + '%';
+        document.getElementById('calcGoldRtp').textContent = goldRtp.toFixed(2) + '%';
+        document.getElementById('calcJadeRtp').textContent = jadeRtp.toFixed(2) + '%';
+        document.getElementById('calcBaseRtp').textContent = baseRtpPercent.toFixed(2) + '%';
+        document.getElementById('calcRtp').textContent = totalRtp.toFixed(2) + '%';
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        [
+            'calcBet',
+            'calcRubyStart', 'calcGoldStart', 'calcJadeStart',
+            'calcRubyContrib', 'calcGoldContrib', 'calcJadeContrib',
+            'calcRubyHit', 'calcGoldHit', 'calcJadeHit',
+            'calcCurrency'
+        ].forEach(function(id) {
+            const el = document.getElementById(id);
+            if (el) el.addEventListener('input', updateJackpotCalc);
+        });
+
+        updateJackpotCalc();
+    });
+</script>
+</body>
+</html>

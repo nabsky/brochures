@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poker Jackpot Display — Screen Flow</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 15mm 14mm 16mm 14mm;
+    }
+
+    :root{
+      --ink:#0f172a;
+      --muted:#475569;
+      --soft:#64748b;
+      --line:#d6dee8;
+      --line-strong:#c7d2e0;
+      --panel:#f8fafc;
+      --panel-2:#f1f5f9;
+      --accent:#111827;
+      --accent-soft:#94a3b8;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body { counter-reset: page; }
+
+    .page {
+      position: relative;
+      min-height: calc(297mm - 31mm);
+      padding-bottom: 16mm;
+      display: flex;
+      flex-direction: column;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .page + .page {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    .cover {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .logo-wrap {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 2px;
+    }
+
+    .logo {
+      height: 200px;
+      width: auto;
+      display: block;
+    }
+
+    .kicker {
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--soft);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1.08;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 25px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.58;
+      color: var(--muted);
+    }
+
+    .hero-divider {
+      width: 84px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #e2e8f0, #94a3b8, #e2e8f0);
+      margin: 4px auto 0;
+    }
+
+    .panel {
+      width: 100%;
+      max-width: 860px;
+      margin: 10px auto 0;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, #ffffff 0%, var(--panel) 100%);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.6) inset;
+    }
+
+    .flow-list {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0 0;
+    }
+
+    .flow-list li {
+      position: relative;
+      padding-left: 34px;
+      margin: 0 0 10px;
+      font-size: 14px;
+      line-height: 1.58;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    .flow-list li::before {
+      content: counter(item);
+      counter-increment: item;
+      position: absolute;
+      left: 0;
+      top: 1px;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flow-list {
+      counter-reset: item;
+    }
+
+    .flow {
+      gap: 12px;
+    }
+
+    .flow-lead {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 12px;
+      align-items: start;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .timeline-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      margin-top: 2px;
+    }
+
+    .timeline-copy {
+      font-size: 14px;
+      line-height: 1.58;
+      color: var(--muted);
+      padding-top: 1px;
+    }
+
+    .state-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .state-card {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: linear-gradient(180deg, #fff 0%, var(--panel) 100%);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .state-card .title {
+      font-size: 15px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .state-card .body {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .screen-head {
+      border-bottom: 2px solid var(--line);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .screen-label {
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--soft);
+      margin-bottom: 8px;
+    }
+
+    .screen-desc {
+      margin: 10px 0 0;
+      font-size: 14px;
+      line-height: 1.62;
+      color: var(--muted);
+      max-width: 900px;
+    }
+
+    .image-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 6px 0 10px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .image-wrap img {
+      max-width: 100%;
+      max-height: 182mm;
+      object-fit: contain;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 1px 0 rgba(15,23,42,0.02), 0 0 0 4px #fff inset;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .notes {
+      margin-top: 4px;
+      padding: 12px 14px;
+      background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent-soft);
+      border-radius: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.58;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .notes b { color: var(--ink); }
+
+    footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: var(--soft);
+      font-size: 12px;
+      line-height: 1;
+      background: #fff;
+      padding-left: 8px;
+    }
+
+    footer::after {
+      counter-increment: page;
+      content: "Page " counter(page);
+    }
+  </style>
+</head>
+<body>
+
+  <section class="page cover">
+    <div class="logo-wrap">
+      <img src="zorindisplays_logo.svg" class="logo" alt="Zorin Displays logo" />
+    </div>
+
+    <div class="kicker">Internal document</div>
+    <h1>Poker Jackpot Display<br />Screen Flow</h1>
+    <div class="hero-divider"></div>
+
+    <p class="subtitle">
+      Working overview of the main table display states, dealer interaction flow,
+      jackpot confirmation sequence, and network announcement behavior.
+    </p>
+
+    <div class="panel">
+      <h3>Main operational flow</h3>
+      <ol class="flow-list">
+        <li>Table starts offline and waits for backend connection.</li>
+        <li>Once connected, jackpots are visible even before dealer login.</li>
+        <li>Dealer logs in and opens a new session.</li>
+        <li>During the betting phase, the dealer enters the number of bonus bets.</li>
+        <li>The same number of chips flies onto the screen as a visual representation of bonus entries.</li>
+        <li>Dealer confirms with <b>Enter</b>; chips fly upward and progressive jackpot values increase.</li>
+        <li>Local table jackpots are selected and confirmed directly on the table.</li>
+        <li>Progressive jackpots require jackpot selection plus PIN confirmation.</li>
+        <li>After confirmation, a network-wide progressive jackpot announcement screen may be shown across all tables.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="page flow" id="flow">
+    <h2>Operational Flow Overview</h2>
+    <p class="flow-lead">
+      The display is built around a small number of operational states: connection state,
+      dealer session state, active jackpot betting state, local jackpot confirmation, and
+      progressive jackpot authorization. The goal is to keep the live table UI readable while
+      still providing strong visual emphasis for important jackpot events.
+    </p>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <div class="timeline-num">1</div>
+        <div class="timeline-copy"><b>Connection state.</b> The table first comes online. Before that, the UI stays in offline mode and clearly indicates that the system is connecting to the server.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">2</div>
+        <div class="timeline-copy"><b>Dealer session start.</b> After the table is online, jackpots can already be displayed. The dealer then logs in and confirms the start of a new session.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">3</div>
+        <div class="timeline-copy"><b>Accepting jackpot bets.</b> During the active betting phase, the table displays progressive and local jackpots as the main live values.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">4</div>
+        <div class="timeline-copy"><b>Entering bonus bets.</b> The dealer presses the number of bonus bets placed. The same number of chips appears on the screen as a visual confirmation of pending entries.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">5</div>
+        <div class="timeline-copy"><b>Committing entries.</b> The dealer confirms with <b>Enter</b>. The chips fly upward, and the progressive jackpot amounts increase accordingly.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">6</div>
+        <div class="timeline-copy"><b>Local jackpot flow.</b> If a local table jackpot is hit, the dealer selects the winning combination, then confirms the payout on the same table.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">7</div>
+        <div class="timeline-copy"><b>Progressive jackpot flow.</b> If a progressive jackpot is hit, the dealer selects the jackpot and the authorized person completes PIN confirmation before the result is finalized.</div>
+      </div>
+      <div class="timeline-step">
+        <div class="timeline-num">8</div>
+        <div class="timeline-copy"><b>Announcement state.</b> After progressive confirmation, a dedicated premium announcement screen can be broadcast to all tables in the network.</div>
+      </div>
+    </div>
+
+    <div class="state-grid">
+      <div class="state-card">
+        <div class="title">Dealer-driven actions</div>
+        <div class="body">
+          Login confirmation, bonus bet count entry, local jackpot selection,
+          progressive jackpot selection, and local payout confirmation.
+        </div>
+      </div>
+      <div class="state-card">
+        <div class="title">Authorized actions</div>
+        <div class="body">
+          PIN confirmation for progressive jackpots, used to separate selection
+          from final approval and reduce accidental confirmations.
+        </div>
+      </div>
+      <div class="state-card">
+        <div class="title">Animated feedback</div>
+        <div class="body">
+          Chips appear according to the entered bonus bet count, then fly upward
+          on confirmation. Progressive cards use stronger highlight treatment than local cards.
+        </div>
+      </div>
+      <div class="state-card">
+        <div class="title">Network output</div>
+        <div class="body">
+          Progressive wins can trigger a premium full-screen announcement
+          shown across the full table network.
+        </div>
+      </div>
+    </div>
+
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s1">
+    <div class="screen-head">
+      <div class="screen-label">01</div>
+      <h2>Offline / No Active Connection</h2>
+      <p class="screen-desc">
+        Base state shown before the table has connected to the backend server.
+        The header shows <b>OFFLINE</b>, and the main card communicates that the table is closed while the system is connecting.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/01_offline.png" alt="Offline screen" />
+    </div>
+    <div class="notes"><b>Purpose:</b> clearly show that the table is unavailable and cannot accept gameplay actions.</div>
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s2">
+    <div class="screen-head">
+      <div class="screen-label">02</div>
+      <h2>Online / Dealer Not Logged In</h2>
+      <p class="screen-desc">
+        The table is connected and jackpots are already visible, but there is no active dealer session yet.
+        The main state still remains <b>TABLE CLOSED</b> until a dealer logs in and opens the table.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/02_online_logged_out.png" alt="Online but dealer not logged in" />
+    </div>
+    <div class="notes"><b>Purpose:</b> expose live jackpot values while still making it clear that the table is not open for play yet.</div>
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s3">
+    <div class="screen-head">
+      <div class="screen-label">03</div>
+      <h2>Dealer Login Confirmation</h2>
+      <p class="screen-desc">
+        Transitional welcome screen shown after dealer identification.
+        It confirms the dealer session and can optionally display details about the previous session for quick context.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/03_login_confirmation.png" alt="Dealer login confirmation" />
+    </div>
+    <div class="notes"><b>Purpose:</b> visually transition the table from closed state into an active dealer session.</div>
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s4">
+    <div class="screen-head">
+      <div class="screen-label">04</div>
+      <h2>Accepting Bets</h2>
+      <p class="screen-desc">
+        Main live screen during the jackpot betting phase.
+        The header shows the current jackpot bet amount, and both progressive and local jackpots are displayed in their regular active state.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/04_accepting_bets.png" alt="Accepting bets" />
+    </div>
+    <div class="notes"><b>Purpose:</b> serve as the primary working screen while jackpot bets are being accepted.</div>
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s5">
+    <div class="screen-head">
+      <div class="screen-label">05</div>
+      <h2>Bonus Bets Entered / Chips Appear</h2>
+      <p class="screen-desc">
+        The dealer enters the number of placed bonus bets.
+        The same number of chips flies onto the screen, giving a direct visual representation of pending bonus entries before they are committed.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/05_bets_placed.png" alt="Bonus bets entered and chips appear" />
+    </div>
+    <div class="notes">
+      <b>Dealer interaction:</b> the dealer presses the number of placed bonus bets. The same number of chips appears on screen. After pressing <b>Enter</b>, the chips fly upward and the progressive jackpot values increase.
+    </div>
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s6">
+    <div class="screen-head">
+      <div class="screen-label">06</div>
+      <h2>Table Jackpot Selected</h2>
+      <p class="screen-desc">
+        When a local fixed jackpot is hit, the dealer selects the winning hand.
+        The selected card receives a stronger border and brighter state, but the result is not finalized yet.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/06_table_jackpot_selected.png" alt="Table jackpot selected" />
+    </div>
+    <div class="notes"><b>Purpose:</b> show the dealer’s current choice before confirming the local jackpot payout.</div>
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s7">
+    <div class="screen-head">
+      <div class="screen-label">07</div>
+      <h2>Table Jackpot Confirmed</h2>
+      <p class="screen-desc">
+        After confirmation, the local jackpot area switches into a dedicated confirmed-win state with hand name,
+        payout amount, and a clear instruction for closing the screen.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/07_table_jackpot_confirmed.png" alt="Table jackpot confirmed" />
+    </div>
+    <div class="notes"><b>Purpose:</b> clearly lock and display the confirmed local jackpot result on the current table.</div>
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s8">
+    <div class="screen-head">
+      <div class="screen-label">08</div>
+      <h2>Progressive Jackpot Selected</h2>
+      <p class="screen-desc">
+        When a progressive jackpot is selected, its card receives stronger emphasis than a local jackpot card:
+        brighter gold border, stronger focus treatment, and elevated visual priority.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/08_progressive_jackpot_selected.png" alt="Progressive jackpot selected" />
+    </div>
+    <div class="notes"><b>Purpose:</b> show which progressive jackpot has been selected before the authorization step.</div>
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s9">
+    <div class="screen-head">
+      <div class="screen-label">09</div>
+      <h2>Progressive Jackpot PIN Confirmation</h2>
+      <p class="screen-desc">
+        Technical confirmation screen for a progressive jackpot.
+        The jackpot type and amount are already selected, and an authorized person enters a PIN code to finalize the event.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/09_progressive_jackpot_pin_confirmation.png" alt="Progressive jackpot PIN confirmation" />
+    </div>
+    <div class="notes"><b>Purpose:</b> separate jackpot selection from final authorization and reduce accidental confirmations.</div>
+    <footer></footer>
+  </section>
+
+  <section class="page" id="s10">
+    <div class="screen-head">
+      <div class="screen-label">10</div>
+      <h2>Progressive Jackpot Confirmed</h2>
+      <p class="screen-desc">
+        After successful PIN confirmation, the progressive jackpot is locked in as confirmed.
+        The main layout returns, while the winning progressive card remains visibly highlighted on the table display.
+      </p>
+    </div>
+    <div class="image-wrap">
+      <img src="img/10_progressive_jackpot_confirmed.png" alt="Progressive jackpot confirmed" />
+    </div>
+    <div class="notes"><b>Purpose:</b> show that the progressive jackpot has been successfully confirmed and completed on the current table.</div>
+    <footer></footer>
+  </section>
+
+</body>
+</html>
